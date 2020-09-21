@@ -37,6 +37,7 @@ class OMP(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(255))
     content = db.Column(db.String)
+    votes = db.Column(db.Integer)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     category_id = db.Column(db.Integer,db.ForeignKey('categories.id'))
     comments = db.relationship('Comment', backref = 'omp', lazy = 'dynamic')
