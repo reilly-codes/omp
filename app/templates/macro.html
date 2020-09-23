@@ -1,0 +1,15 @@
+{% macro displayPickupLines(opm_list) %}
+    {% for opm in opm_list %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    {{ opm.title }}
+                    <br>
+                    <a href="{{url_for("main.opm")}}"><button class="btn btn-danger">Read More</button></a>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}

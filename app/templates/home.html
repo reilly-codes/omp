@@ -1,5 +1,11 @@
 {% extends "base.html" %}
+{% import 'macro.html' as macro %}
 
 {% block content %}
-    <h1>HELLO WORLD!</h1>
+    <div class="home">
+        {{macro. displayPickupLines(omps)}}
+    </div>
+    <div class="text-center">
+        <a href="{{url_for("main.new_omp")}}"><button class="btn btn-danger">NEW OMP</button></a>
+    </div>
 {% endblock %}

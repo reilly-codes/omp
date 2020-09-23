@@ -39,7 +39,6 @@ class OMP(db.Model):
     content = db.Column(db.String)
     votes = db.Column(db.Integer)
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    category_id = db.Column(db.Integer,db.ForeignKey('categories.id'))
     comments = db.relationship('Comment', backref = 'omp', lazy = 'dynamic')
     
     def __init__(self, title, content):
@@ -75,12 +74,3 @@ class Comment(db.Model):
         comments = Comment.query.filter_by().all()
         return comments
         
-class Category(db.Model):
-    __tablename__ = 'categories'
-    id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String)
-    omp = db.relationship('OMP', backref = 'category', lazy = 'dynamic')
-    
-    def __repr__(self):
-        return f'Category {self.name}'
-    
